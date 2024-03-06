@@ -17,11 +17,6 @@ using namespace std;
 
 
 
-    string itob(int valor); //convert integer to binary
-    string ftob(float valor); //convert fraction to binary
-    duo stob(string valor); //convert string to binary
-    string dtoi3e(duo d); // convert duo to ieee 754
-
 
 // float ieee = 0(sinal) 00000000(expoente) 00000000000000000000000(mantissa)
 

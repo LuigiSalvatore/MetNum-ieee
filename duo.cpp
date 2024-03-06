@@ -4,6 +4,7 @@ duo::duo()
     {
         this->binarioInt = "0";
         this->binarioFraction = "0";
+        this->sinal = "0";
     }
     
 std::ostream& operator<<(std::ostream& os, const duo& d)
@@ -14,10 +15,11 @@ std::ostream& operator<<(std::ostream& os, const duo& d)
 
 duo stob(std::string valor) //convert std::string to binary
     {
+        duo binario;
         float num = stof(valor);
         int numi = (int)num;
         float numf = num - numi;
-        duo binario;
+        binario.sinal = std::stof(valor) < 0 ? "1" : "0";
         binario.binarioInt = itob(numi);
         binario.binarioFraction = ftob(numf);
         
@@ -59,7 +61,22 @@ std::string itob(int valor) //convert integer to binary
     }
 std::string dtoi3e(duo d) // convert duo to ieee 754
 {
-    std::string restante = d.binarioInt.replace(0, 1, "");
-    std::string mantissa = restante + d.binarioFraction;
-    int expoente = d.binarioInt.length() - 1 + 127;
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+    // (-1)^s * 2^(e-BIAS) * 1.m
+
+    // int expoente = d.binarioInt.length() - 1;
+    // std::string restante = d.binarioInt.replace(0, 1, "");
+    // std::string mantissa = restante + d.binarioFraction;

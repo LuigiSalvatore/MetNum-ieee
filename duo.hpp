@@ -9,6 +9,7 @@ class duo
     public:
     std::string binarioInt;
     std::string binarioFraction;
+    std::string sinal;
     duo();
     friend std::ostream& operator<<(std::ostream& os, const duo& d);
 };
