@@ -1,3 +1,3 @@
 @echo off
-g++ -o main.exe main.cpp duo.cpp IEEE.hpp
-main.exe
+g++ -o test.exe test.cpp
+test.exe
