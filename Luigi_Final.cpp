@@ -18,10 +18,11 @@ int main()
     string s[2], op;
     cin >> s[0] >> op >> s[1];
     stringstream ss;
-    feclearexcept(FE_ALL_EXCEPT);
 
     for (int i = 0; i < 2; i++)
         f[i] = stof(s[i]);
+
+    feclearexcept(FE_ALL_EXCEPT);
 
     switch (op[0])
     {
