@@ -6,6 +6,21 @@
 
 using namespace std;
 
+unsigned flags[5] = {FE_DIVBYZERO, FE_INEXACT, FE_INVALID, FE_OVERFLOW, FE_UNDERFLOW};
+string flagstr[5] = {"FE_DIVBYZERO", "FE_INEXACT", "FE_INVALID", "FE_OVERFLOW", "FE_UNDERFLOW"};
+
+string flags_str()
+{
+    stringstream ss;
+    int flag = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        flag = (fetestexcept(flags[i])) ? 1 : 0;
+        ss << flagstr[i] << " = " << flag << endl;
+    }
+    return ss.str();
+}
+
 int main()
 {
     float n1f, n2f, res;
@@ -78,41 +93,10 @@ int main()
         << res
         << endl;
 #pragma endregion
-
-#pragma region Flags
-
-    flag = (fetestexcept(FE_DIVBYZERO)) ? 1 : 0;
-    ss
-        << "FE_DIVBYZERO = "
-        << flag
-        << endl;
-
-    flag = (fetestexcept(FE_INEXACT)) ? 1 : 0;
-    ss
-        << "FE_INEXACT = "
-        << flag
-        << endl;
-
-    flag = (fetestexcept(FE_INVALID)) ? 1 : 0;
-    ss
-        << "FE_INVALID = "
-        << flag
-        << endl;
-
-    flag = (fetestexcept(FE_OVERFLOW)) ? 1 : 0;
-    ss
-        << "FE_OVERFLOW = "
-        << flag
-        << endl;
-
-    flag = (fetestexcept(FE_UNDERFLOW)) ? 1 : 0;
-    ss
-        << "FE_UNDERFLOW = "
-        << flag
-        << endl;
-#pragma endregion
-
-    cout << ss.str();
+    cout
+        << ss.str()
+        << endl
+        << flags_str();
 
     return 0;
 }
